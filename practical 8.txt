@@ -1,0 +1,212 @@
+01 
+// BankAccount.java
+abstract class BankAccount {
+    private String accountNumber;
+    private double balance;
+
+    public BankAccount(String accountNumber, double balance) {
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public abstract double calculateInterest();
+}
+
+// SavingsAccount.java
+class SavingsAccount extends BankAccount {
+    public SavingsAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
+    }
+
+    @Override
+    public double calculateInterest() {
+        return getBalance() * 0.12;
+    }
+}
+
+// CheckingAccount.java
+class CheckingAccount extends BankAccount {
+    public CheckingAccount(String accountNumber, double balance) {
+        super(accountNumber, balance);
+    }
+
+    @Override
+    public double calculateInterest() {
+        return getBalance() * 0.02;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        double checkingBalance = 1000000; // 1 million
+        double savingsBalance = 20000000; // 20 million
+
+        BankAccount checkingAccount = new CheckingAccount("123456", checkingBalance);
+        BankAccount savingsAccount = new SavingsAccount("987654", savingsBalance);
+
+        double checkingInterest = checkingAccount.calculateInterest();
+        double savingsInterest = savingsAccount.calculateInterest();
+
+        System.out.printf("Interest on checking account: $%.2f%n", checkingInterest);
+        System.out.printf("Interest on savings account: $%.2f%n", savingsInterest);
+    }
+}
+
+
+// Shape.java
+interface Shape {
+    double calculateArea();
+    double calculatePerimeter();
+}
+
+// Circle.java
+class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+// Rectangle.java
+class Rectangle implements Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+}
+02
+
+// Triangle.java
+class Triangle implements Shape {
+    private double side1;
+    private double side2;
+    private double side3;
+
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    public double getSide1() {
+        return side1;
+    }
+
+    public void setSide1(double side1) {
+        this.side1 = side1;
+    }
+
+    public double getSide2() {
+        return side2;
+    }
+
+    public void setSide2(double side2) {
+        this.side2 = side2;
+    }
+
+    public double getSide3() {
+        return side3;
+    }
+
+    public void setSide3(double side3) {
+        this.side3 = side3;
+    }
+
+    @Override
+    public double calculateArea() {
+        double s = (side1 + side2 + side3) / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return side1 + side2 + side3;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5);
+        Rectangle rectangle = new Rectangle(4, 6);
+        Triangle triangle = new Triangle(3, 4, 5);
+
+        System.out.printf("Circle Area: %.2f%n", circle.calculateArea());
+        System.out.printf("Circle Perimeter: %.2f%n", circle.calculatePerimeter());
+
+        System.out.printf("Rectangle Area: %.2f%n", rectangle.calculateArea());
+        System.out.printf("Rectangle Perimeter: %.2f%n", rectangle.calculatePerimeter());
+
+        System.out.printf("Triangle Area: %.2f%n", triangle.calculateArea());
+        System.out.printf("Triangle Perimeter: %.2f%n", triangle.calculatePerimeter());
+    }
+}
+
+
+
+ 
+
+

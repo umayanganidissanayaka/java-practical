@@ -1,0 +1,63 @@
+01 
+The provided code snippet has some syntax issues and will not compile. Here are the issues:
+
+The class keyword should be lowercase, not uppercase.
+The final keyword cannot be used with methods that are also abstract.
+Here's the corrected version of the code:
+
+
+class Student {
+    final int marks = 100;
+    void display() {
+        System.out.println("Marks: " + marks);
+    }
+}
+
+class Undergraduate extends Student {
+    // Additional code specific to Undergraduate class, if needed.
+
+02 
+abstract class Shape {
+    abstract double calculateArea();
+
+    void display() {
+        System.out.println("Area: " + calculateArea());
+    }
+}
+
+class Circle extends Shape {
+    private double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Rectangle extends Shape {
+    private double length;
+    private double width;
+
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    double calculateArea() {
+        return length * width;
+    }
+}
+
+
+public static void main(String[] args) {
+    Circle circle = new Circle(5.0);
+    circle.display(); // Output: Area: 78.53981633974483
+
+    Rectangle rectangle = new Rectangle(4.0, 6.0);
+    rectangle.display(); // Output: Area: 24.0
+}

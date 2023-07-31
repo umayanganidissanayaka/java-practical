@@ -1,0 +1,50 @@
+01Declare the interface "MyFirstInterface":
+
+interface MyFirstInterface {
+    int x = 10;
+
+    void display();
+}
+Using public static final keywords for the variable:
+
+Without public static final:
+The variable in an interface is implicitly public, static, and final. So, whether you use the public static final keywords or not, the variable x will be treated as public, static, and final. There is no difference between these two approaches for an interface variable.
+
+public interface MyFirstInterface {
+    public static final int x = 10;
+
+    void display();
+}
+
+Declare the abstract method with/without the abstract keyword:
+
+When declaring a method inside an interface, it is implicitly abstract. So, whether you use the abstract keyword or not, the method display() will be treated as abstract. There is no difference between these two approaches for an interface method.
+
+
+
+public interface MyFirstInterface {
+    void display();
+
+
+Implement the interface into a class called "InterfaceImplemented":
+
+public class InterfaceImplemented implements MyFirstInterface {
+    @Override
+    public void display() {
+        x = 20; // Trying to change the value of x
+        System.out.println("The value of x inside display method: " + x);
+    }
+}
+
+
+Try to change the value of x inside this method and print the value of x:
+
+The variable x in the interface is implicitly final, meaning it cannot be reassigned once initialized. Since it is treated as a constant (static final), it is not allowed to change its value in any implementing class. That's why trying to modify x inside the display() method will cause a compilation error.
+
+public class Main {
+    public static void main(String[] args) {
+        InterfaceImplemented obj = new InterfaceImplemented();
+        obj.display();
+        System.out.println("The value of x in the class: " + obj.x);
+    }
+}

@@ -1,0 +1,99 @@
+01
+// Person class
+public class Person {
+    private String name;
+    private int id;
+
+    // Constructor
+    public Person(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    // Getters and Setters for name and id
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+}
+
+// Student class (subclass of Person)
+public class Student extends Person {
+    private String course;
+
+    // Constructor
+    public Student(String name, int id, String course) {
+        super(name, id);
+        this.course = course;
+    }
+
+    // Getter and Setter for course
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+}
+
+// Lecturer class (subclass of Person)
+public class Lecturer extends Person {
+    private String programme;
+
+    // Constructor
+    public Lecturer(String name, int id, String programme) {
+        super(name, id);
+        this.programme = programme;
+    }
+
+    // Getter and Setter for programme
+    public String getProgramme() {
+        return programme;
+    }
+
+    public void setProgramme(String programme) {
+        this.programme = programme;
+    }
+}
+public class TestPerson {
+    public static void main(String[] args) {
+        // Creating a Student object
+        Student student = new Student("John", 12345, "Computer Science");
+        System.out.println("Student: " + student.getName() + ", ID: " + student.getId() + ", Course: " + student.getCourse());
+
+        // Creating a Lecturer object
+        Lecturer lecturer = new Lecturer("Jane", 54321, "Physics");
+        System.out.println("Lecturer: " + lecturer.getName() + ", ID: " + lecturer.getId() + ", Programme: " + lecturer.getProgramme());
+    }
+}
+
+
+02 public class Animal{}
+
+public class Mammal extends Animal{}
+
+public class Reptile extends Animal{}
+
+public class Dog extends Mammal{
+    public static void main(String args[]){
+        Animal a = new Animal();
+        Mammal m = new Mammal();
+        Dog d = new Dog();
+
+        System.out.println(m instanceof Animal);
+        System.out.println(d instanceof Mammal);
+        System.out.println(d instanceof Animal);
+    }
+}

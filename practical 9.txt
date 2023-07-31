@@ -1,0 +1,98 @@
+(i) Java definition of class Container:
+
+
+abstract class Container {
+    private double height;
+    private double radius;
+
+    // Constructor
+    public Container(double height, double radius) {
+        this.height = height;
+        this.radius = radius;
+    }
+
+    // Abstract method to calculate the volume of the container
+    public abstract double calculateVolume();
+}
+(ii) Java definition of class CylindricalContainer:
+
+]
+class CylindricalContainer extends Container {
+    private static final double PI = 3.14159;
+
+    // Constructor
+    public CylindricalContainer(double height, double radius) {
+        super(height, radius);
+    }
+
+    // Implementing the abstract method to calculate the volume of the cylindrical container
+    @Override
+    public double calculateVolume() {
+        return PI * getRadius() * getRadius() * getHeight();
+    }
+
+    // Getters for height and radius (optional, but good practice)
+    public double getHeight() {
+        return height;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+}
+(iii) Creating an object from CylindricalContainer and displaying the volume:
+
+
+public class Main {
+    public static void main(String[] args) {
+        double height = 10.0; // Replace with your desired height
+        double radius = 5.0; // Replace with your desired radius
+
+        // Creating an object of CylindricalContainer
+        CylindricalContainer container = new CylindricalContainer(height, radius);
+
+        // Displaying the volume of the container
+        double volume = container.calculateVolume();
+        System.out.println("Volume of the cylindrical container: " + volume);
+    }
+}
+
+
+
+}
+02 
+// Define the PlayerController interface
+interface PlayerController {
+    void moveUp();
+    void moveDown();
+    void moveLeft();
+    void moveRight();
+}
+
+// Implement the PlayerController interface for the Life game
+class LifePlayerController implements PlayerController {
+    @Override
+    public void moveUp() {
+        System.out.println("Player moves Up");
+    }
+
+    @Override
+    public void moveDown() {
+        System.out.println("Player moves Down");
+    }
+
+    @Override
+    public void moveLeft() {
+        System.out.println("Player moves Left");
+    }
+
+    @Override
+    public void moveRight() {
+        System.out.println("Player moves Right");
+    }
+}
+
+
+
+
+
